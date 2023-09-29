@@ -4,11 +4,12 @@ RUN		apt update
 RUN		apt upgrade -y
 RUN		apt install nginx -y
 # TOOLS
-RUN		apt install vim -y
-RUN		apt install curl -y
+# RUN		apt install vim -y
+# RUN		apt install curl -y
 
 # SSL
 RUN		mkdir -p /etc/nginx/ssl
+RUN		apt install openssl -y
 RUN		openssl req \
 		# certificat type
 		-x509 \
@@ -23,7 +24,8 @@ RUN		openssl req \
 
 # Config
 RUN		mkdir -p /var/run/nginx
-COPY	conf/nginx.conf /etc/nginx/nginx.conf
+# COPY	conf/nginx.conf /etc/nginx/nginx.conf
+COPY	conf/nginx.conf /etc/nginx/conf.d/default.conf
 
 # main root
 RUN chmod 755 /var/www/html
