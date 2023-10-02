@@ -6,7 +6,7 @@ docker build [path]
 docker image ls # voir les images
 
 docker run [image_name]
--it # ouvre le termianl du container au lancement
+-it # ouvre le terminal du container au lancement
 
 ####       ####
 
