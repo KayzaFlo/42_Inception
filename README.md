@@ -1,21 +1,27 @@
 # Inception
-Incepion a 42's piscine that introduce us to the world of Docker.
+Inception is a 42's project that introduce us to the world of Docker and Containers.
 
 ## Description
 
-tbd
+3 Containers integrated:
+ - MariaDB
+ - Nginx
+ - Wordpress
+<p align="left">
+  <img src="/images/subject_structure.png" width="60%" />
+</p>
+
 
 ## Installation
 
 ```bash
-git clone git@github.com:KayzaFlo/42_CPP.git
-cd Module0X/ex0X
-make
+git clone git@github.com:KayzaFlo/Inception.git
+`make` or `docker compose -f srcs/docker-compose.yml up --build`
 ```
 
 ## Usage
 
-tbd
+Fill the `.env.template` file and rename it to `.env` before launching.
 
 ## License
 

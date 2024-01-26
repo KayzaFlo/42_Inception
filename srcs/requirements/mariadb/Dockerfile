@@ -11,7 +11,7 @@ RUN mkdir -p /var/run/mysqld \
 
 EXPOSE 3306
 
-# COPY	conf/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
+COPY	conf/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
 
 # COPY	tools/TableCreation.sh	/TableCreation.sh
 # RUN		chmod 755 /TableCreation.sh
@@ -21,4 +21,4 @@ COPY	tools/mariadb.sh /mariadb.sh
 RUN		chmod 755 /mariadb.sh
 ENTRYPOINT [ "/mariadb.sh" ]
 
-CMD ["mysqld", "--bind-address=0.0.0.0"]
+CMD ["mysqld_safe", "--bind-address=0.0.0.0"]
