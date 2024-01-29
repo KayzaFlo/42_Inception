@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # wait for mariadb initialized
-# sleep 10
+sleep 20
 
 if [ -f ./wp-config.php ]
 then
