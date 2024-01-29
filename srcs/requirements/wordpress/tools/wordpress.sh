@@ -34,9 +34,9 @@ else
 
 	wp user create		--allow-root \
 						$WP_USER_NAME $WP_USER_EMAIL \
+						--user_pass=$WP_USER_PASSWORD \
 						--role=author \
 						--path='/var/www/html'
-	echo "✅ Sucess: User created successfully"
 fi
 
 echo "------------------------------"
