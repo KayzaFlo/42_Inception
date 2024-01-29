@@ -6,7 +6,7 @@
 #    By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 13:26:56 by fgeslin           #+#    #+#              #
-#    Updated: 2024/01/26 15:59:47 by fgeslin          ###   ########.fr        #
+#    Updated: 2024/01/29 12:08:45 by fgeslin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,10 @@ C_CYA 		:= \033[1;36m
 all: compose
 
 compose:
-	docker compose -f srcs/docker-compose.yml up --build
+	docker-compose -f srcs/docker-compose.yml up --build
 
 start:
-	docker compose -f srcs/docker-compose.yml start
+	docker-compose -f srcs/docker-compose.yml start
 
 nuke:
 	docker system prune -af
@@ -42,7 +42,7 @@ hostname:
 # ------ #
 
 clean:
-	@ docker compose -f srcs/docker-compose.yml down
+	@ docker-compose -f srcs/docker-compose.yml down
 	@ echo "$(C_RED)Closing $(C_CYA)$(NAME) $(C_WHT) ✔️"
 
 fclean: clean
