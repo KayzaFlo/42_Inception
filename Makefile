@@ -6,7 +6,7 @@
 #    By: fgeslin <fgeslin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 13:26:56 by fgeslin           #+#    #+#              #
-#    Updated: 2024/01/29 12:08:45 by fgeslin          ###   ########.fr        #
+#    Updated: 2024/01/29 17:03:19 by fgeslin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ nuke:
 
 hostname:
 	echo "" >> /etc/hosts
-	echo "fgeslin.42.ca" >> /etc/hosts
+	echo "127.0.0.1	fgeslin.42.ca" >> /etc/hosts
 
 # ------ #
 
@@ -46,8 +46,11 @@ clean:
 	@ echo "$(C_RED)Closing $(C_CYA)$(NAME) $(C_WHT) ✔️"
 
 fclean: clean
-	@ docker image prune
-	@ rm -r srcs/data
+	@ docker image rm srcs-wordpress
+	@ docker image rm srcs-mariadb
+	@ docker image rm srcs-nginx
+	@ docker volume rm srcs_mariadb_vol
+	@ docker volume rm srcs_wordpress_vol
 	@ echo "$(C_RED)Deleting $(C_CYA)$(NAME) $(C_WHT) images & volumes ✔️"
 
 re: fclean all
