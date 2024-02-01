@@ -27,6 +27,8 @@ C_CYA 		:= \033[1;36m
 all: compose
 
 compose:
+	mkdir -p /home/fgeslin/data/wordpress
+	mkdir -p /home/fgeslin/data/mariadb
 	docker-compose -f srcs/docker-compose.yml up --build
 
 start:
@@ -46,11 +48,13 @@ clean:
 	@ echo "$(C_RED)Closing $(C_CYA)$(NAME) $(C_WHT) ✔️"
 
 fclean: clean
-	@ docker image rm srcs-wordpress
-	@ docker image rm srcs-mariadb
-	@ docker image rm srcs-nginx
+	@ docker image rm srcs_wordpress
+	@ docker image rm srcs_mariadb
+	@ docker image rm srcs_nginx
 	@ docker volume rm srcs_mariadb_vol
 	@ docker volume rm srcs_wordpress_vol
+	@ rm -rf /home/fgeslin/data/mariadb/*
+	@ rm -rf /home/fgeslin/data/wordpress/*
 	@ echo "$(C_RED)Deleting $(C_CYA)$(NAME) $(C_WHT) images & volumes ✔️"
 
 re: fclean all
